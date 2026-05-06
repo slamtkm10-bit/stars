@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Stars – Купить звёзды Telegram дёшево</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0f;
+            color: #e8e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 480px;
+            width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f0e6ff, #c084fc, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #8888a0;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .ref-banner {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(59, 130, 246, 0.10));
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .ref-banner strong {
+            color: #c084fc;
+        }
+
+        .ref-link-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 6px 6px 6px 14px;
+            border: 1px solid #1e1e30;
+        }
+
+        .ref-link-row .ref-link-text {
+            flex: 1;
+            font-size: 12px;
+            color: #aaa;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ref-link-row .icon-btn {
+            background: #a855f7;
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .ref-link-row .icon-btn:hover {
+            background: #9333ea;
+        }
+
+        .ref-link-row .icon-btn.share-btn {
+            background: #1e93ff;
+        }
+
+        .ref-link-row .icon-btn.share-btn:hover {
+            background: #1a7fe0;
+        }
+
+        .card {
+            background: #12121c;
+            border: 1px solid #1e1e30;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #c0c0d0;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: #0a0a14;
+            border: 1px solid #1e1e30;
+            border-radius: 12px;
+            padding: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group:focus-within {
+            border-color: #a855f7;
+        }
+
+        .input-group .prefix {
+            padding: 0 12px;
+            color: #666;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .input-group input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 12px 12px 0;
+            color: #e8e8f0;
+            font-size: 15px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .input-group input::placeholder {
+            color: #555;
+        }
+
+        .input-group .check-btn {
+            background: #a855f7;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+
+        .input-group .check-btn:hover {
+            background: #9333ea;
+        }
+
+        .input-group .check-btn:disabled {
+            background: #333;
+            cursor: not-allowed;
+        }
+
+        .user-display {
+            display: none;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            background: #0a0a14;
+            border-radius: 12px;
+            margin-top: 12px;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .user-display.visible {
+            display: flex;
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .user-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: #f0f0ff;
+        }
+
+        .user-username {
+            font-size: 13px;
+            color: #8888a0;
+        }
+
+        .user-status {
+            font-size: 12px;
+            color: #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .user-status .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: inline-block;
+        }
+
+        .prices-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .price-item {
+            background: #0a0a14;
+            border: 1px solid #1a1a2e;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .price-item:hover {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.06);
+        }
+
+        .price-item.selected {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.10);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.08);
+        }
+
+        .price-item .stars {
+            font-size: 24px;
+            font-weight: 800;
+            color: #f0e6ff;
+        }
+
+        .price-item .ton {
+            font-size: 15px;
+            color: #c084fc;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #1a1a2e;
+        }
+
+        .stats-row:last-child {
+            border-bottom: none;
+        }
+
+        .stats-row .label {
+            color: #8888a0;
+        }
+
+        .stats-row .value {
+            font-weight: 600;
+            color: #f0f0ff;
+        }
+
+        .pay-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s;
+            font-family: inherit;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pay-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.25);
+        }
+
+        .pay-btn:disabled {
+            background: #222;
+            color: #555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .pay-btn .sub {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .withdraw-section {
+            margin-top: 8px;
+        }
+
+        .withdraw-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .withdraw-input-group input {
+            flex: 1;
+            background: #0a0a14;
+            border: 1px solid #1e1e30;
+            border-radius: 12px;
+            padding: 12px 14px;
+            color: #e8e8f0;
+            font-size: 14px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .withdraw-input-group input:focus {
+            border-color: #a855f7;
+        }
+
+        .withdraw-btn {
+            padding: 12px 20px;
+            background: #22c55e;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .withdraw-btn:hover:not(:disabled) {
+            background: #16a34a;
+        }
+
+        .withdraw-btn:disabled {
+            background: #222;
+            color: #555;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1c1c2e;
+            border: 1px solid #2a2a40;
+            padding: 14px 24px;
+            border-radius: 14px;
+            font-size: 14px;
+            color: #e8e8f0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.error {
+            border-color: #ef4444;
+        }
+
+        .toast.success {
+            border-color: #22c55e;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .ref-info {
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .ref-info.visible {
+            display: block;
+        }
+
+        .ref-info a {
+            color: #c084fc;
+            text-decoration: none;
+        }
+
+        .ref-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 400px) {
+            .prices-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .price-item {
+                padding: 12px 8px;
+            }
+            .price-item .stars {
+                font-size: 20px;
+            }
+            .ref-link-row .ref-link-text {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>✨ Telegram Stars</h1>
+            <p>Покупайте звёзды Telegram по лучшим ценам</p>
+        </div>
+
+        <!-- Referral Banner -->
+        <div class="ref-banner" id="refBanner">
+            👥 Приводите друзей — получайте <strong>2 ★</strong> за каждого!
+            <div class="ref-link-row">
+                <span class="ref-link-text" id="refLinkDisplay">загрузка...</span>
+                <button class="icon-btn" id="copyRefBtn" title="Копировать ссылку">📋</button>
+                <button class="icon-btn share-btn" id="shareRefBtn" title="Поделиться в Telegram">✈️</button>
+            </div>
+        </div>
+
+        <!-- Username Input -->
+        <div class="card">
+            <div class="card-title">👤 Ваш Telegram</div>
+            <div class="input-group">
+                <span class="prefix">@</span>
+                <input type="text" id="usernameInput" placeholder="username" autocomplete="off">
+                <button class="check-btn" id="checkBtn">Проверить</button>
+            </div>
+            <div class="user-display" id="userDisplay">
+                <div class="user-avatar" id="userAvatar">?</div>
+                <div class="user-info">
+                    <div class="user-name" id="userName">Загрузка...</div>
+                    <div class="user-username" id="userUsername">@username</div>
+                    <div class="user-status"><span class="dot"></span> Аккаунт подтверждён</div>
+                </div>
+            </div>
+            <div class="ref-info" id="refInfo">
+                🔗 Вас пригласил: <strong id="refByUsername">—</strong><br>
+                Ваша реферальная ссылка:<br>
+                <div class="ref-link-row" style="margin-top:6px;">
+                    <span class="ref-link-text" id="myRefLink">загрузка...</span>
+                    <button class="icon-btn" id="copyMyRefBtn" title="Копировать">📋</button>
+                    <button class="icon-btn share-btn" id="shareMyRefBtn" title="Поделиться в Telegram">✈️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prices -->
+        <div class="card">
+            <div class="card-title">⭐ Выберите пакет звёзд</div>
+            <div class="prices-grid" id="pricesGrid">
+                <div class="price-item" data-stars="500" data-ton="2">
+                    <div class="stars">500 ★</div>
+                    <div class="ton">2 TON</div>
+                </div>
+                <div class="price-item" data-stars="1000" data-ton="4">
+                    <div class="stars">1000 ★</div>
+                    <div class="ton">4 TON</div>
+                </div>
+                <div class="price-item" data-stars="2500" data-ton="10">
+                    <div class="stars">2500 ★</div>
+                    <div class="ton">10 TON</div>
+                </div>
+                <div class="price-item" data-stars="5000" data-ton="18">
+                    <div class="stars">5000 ★</div>
+                    <div class="ton">18 TON</div>
+                </div>
+                <div class="price-item" data-stars="10000" data-ton="32">
+                    <div class="stars">10000 ★</div>
+                    <div class="ton">32 TON</div>
+                </div>
+                <div class="price-item" data-stars="25000" data-ton="70">
+                    <div class="stars">25000 ★</div>
+                    <div class="ton">70 TON</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary & Payment -->
+        <div class="card">
+            <div class="card-title">📋 Детали заказа</div>
+            <div class="stats-row">
+                <span class="label">Звёзды</span>
+                <span class="value" id="summaryStars">—</span>
+            </div>
+            <div class="stats-row">
+                <span class="label">К оплате</span>
+                <span class="value" id="summaryTon">—</span>
+            </div>
+            <div class="stats-row">
+                <span class="label">Получатель</span>
+                <span class="value" id="summaryUser">не указан</span>
+            </div>
+            <div class="stats-row" style="border-bottom: none;">
+                <span class="label">Бонус за реферала</span>
+                <span class="value" id="summaryRef">—</span>
+            </div>
+
+            <button class="pay-btn" id="payBtn" disabled>
+                💳 Оплатить в TON
+                <span class="sub">Через Tonkeeper</span>
+            </button>
+        </div>
+
+        <!-- Withdrawal -->
+        <div class="card withdraw-section">
+            <div class="card-title">💸 Вывод звёзд</div>
+            <p style="font-size: 13px; color: #8888a0; margin-bottom: 12px;">
+                Минимальный вывод: <strong>50 ★</strong>
+            </p>
+            <div class="withdraw-input-group">
+                <input type="text" id="withdrawAddress" readonly value="UQDoqehDPI84Lw4xr6c85szWYRYdZKKglKXZWrIwlS2Ko7Ws">
+                <button class="withdraw-btn" id="withdrawBtn" disabled>Вывести</button>
+            </div>
+            <div class="stats-row" style="margin-top: 10px;">
+                <span class="label">Ваш баланс</span>
+                <span class="value" id="balanceDisplay">0 ★</span>
+            </div>
+            <div class="stats-row" style="border-bottom: none;">
+                <span class="label">Заработано по рефералам</span>
+                <span class="value" id="earnedDisplay">0 ★</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            Telegram Stars © 2026 · Только для образовательных целей
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ============================================================
+        // CONFIG
+        // ============================================================
+        const CONFIG = {
+            merchantWallet: 'UQDoqehDPI84Lw4xr6c85szWYRYdZKKglKXZWrIwlS2Ko7Ws',
+            refBonusStars: 2,
+            minWithdrawStars: 50,
+            botUsername: 'YourBotUsername', // ضع اسم البوت هنا بعد ما تسويه
+            corsProxy: 'https://api.allorigins.win/raw?url=',
+        };
+
+        const prices = {
+            500: 2,
+            1000: 4,
+            2500: 10,
+            5000: 18,
+            10000: 32,
+            25000: 70,
+        };
+
+        // ============================================================
+        // STATE
+        // ============================================================
+        let state = {
+            username: '',
+            firstName: '',
+            selectedStars: null,
+            selectedTon: null,
+            balance: 0,
+            earned: 0,
+            refBy: null,
+            myRefCode: null,
+            isChecking: false,
+            hasFetchedName: false,
+            userId: null,
+        };
+
+        // ============================================================
+        // DOM REFS
+        // ============================================================
+        const $ = (id) => document.getElementById(id);
+        const usernameInput = $('usernameInput');
+        const checkBtn = $('checkBtn');
+        const userDisplay = $('userDisplay');
+        const userAvatar = $('userAvatar');
+        const userName = $('userName');
+        const userUsername = $('userUsername');
+        const pricesGrid = $('pricesGrid');
+        const summaryStars = $('summaryStars');
+        const summaryTon = $('summaryTon');
+        const summaryUser = $('summaryUser');
+        const summaryRef = $('summaryRef');
+        const payBtn = $('payBtn');
+        const withdrawBtn = $('withdrawBtn');
+        const balanceDisplay = $('balanceDisplay');
+        const earnedDisplay = $('earnedDisplay');
+        const toast = $('toast');
+        const refInfo = $('refInfo');
+        const refByUsername = $('refByUsername');
+        const refLinkDisplay = $('refLinkDisplay');
+        const myRefLink = $('myRefLink');
+        const copyRefBtn = $('copyRefBtn');
+        const shareRefBtn = $('shareRefBtn');
+        const copyMyRefBtn = $('copyMyRefBtn');
+        const shareMyRefBtn = $('shareMyRefBtn');
+
+        // ============================================================
+        // TOAST
+        // ============================================================
+        let toastTimeout;
+
+        function showToast(msg, type = '') {
+            toast.textContent = msg;
+            toast.className = 'toast visible ' + type;
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.className = 'toast';
+            }, 4000);
+        }
+
+        // ============================================================
+        // REFERRAL SYSTEM
+        // ============================================================
+        function initReferral() {
+            const params = new URLSearchParams(window.location.search);
+            const ref = params.get('ref');
+            
+            let myCode = localStorage.getItem('myRefCode');
+            if (!myCode) {
+                myCode = 'user_' + Math.random().toString(36).substring(2, 10);
+                localStorage.setItem('myRefCode', myCode);
+            }
+            state.myRefCode = myCode;
+
+            if (ref && ref !== myCode) {
+                localStorage.setItem('refBy', ref);
+                state.refBy = ref;
+            } else if (localStorage.getItem('refBy')) {
+                state.refBy = localStorage.getItem('refBy');
+            }
+
+            const savedBalance = localStorage.getItem('starsBalance');
+            const savedEarned = localStorage.getItem('starsEarned');
+            if (savedBalance) state.balance = parseInt(savedBalance) || 0;
+            if (savedEarned) state.earned = parseInt(savedEarned) || 0;
+
+            const myUrl = window.location.origin + window.location.pathname + '?ref=' + myCode;
+            refLinkDisplay.textContent = myUrl;
+            myRefLink.textContent = myUrl;
+
+            if (state.refBy) {
+                refInfo.classList.add('visible');
+                refByUsername.textContent = '@' + state.refBy;
+            }
+
+            updateBalanceUI();
+        }
+
+        function updateBalanceUI() {
+            balanceDisplay.textContent = state.balance + ' ★';
+            earnedDisplay.textContent = state.earned + ' ★';
+            withdrawBtn.disabled = state.balance < CONFIG.minWithdrawStars;
+            localStorage.setItem('starsBalance', state.balance);
+            localStorage.setItem('starsEarned', state.earned);
+        }
+
+        // ============================================================
+        // COPY & SHARE
+        // ============================================================
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('✅ Скопировано!', 'success');
+                }).catch(() => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                document.execCommand('copy');
+                showToast('✅ Скопировано!', 'success');
+            } catch (e) {
+                showToast('❌ Ошибка копирования', 'error');
+            }
+            document.body.removeChild(ta);
+        }
+
+        function shareTelegram(text) {
+            const encoded = encodeURIComponent(text);
+            const tgUrl = `https://t.me/share/url?url=${encoded}`;
+            window.open(tgUrl, '_blank');
+        }
+
+        copyRefBtn.addEventListener('click', () => {
+            const url = refLinkDisplay.textContent;
+            if (url && url !== 'загрузка...') copyToClipboard(url);
+        });
+
+        shareRefBtn.addEventListener('click', () => {
+            const url = refLinkDisplay.textContent;
+            if (url && url !== 'загрузка...') shareTelegram(url);
+        });
+
+        copyMyRefBtn.addEventListener('click', () => {
+            const url = myRefLink.textContent;
+            if (url && url !== 'загрузка...') copyToClipboard(url);
+        });
+
+        shareMyRefBtn.addEventListener('click', () => {
+            const url = myRefLink.textContent;
+            if (url && url !== 'загрузка...') shareTelegram(url);
+        });
+
+        // ============================================================
+        // FETCH NAME FROM t.me
+        // ============================================================
+        async function fetchTelegramName(username) {
+            const cleanUsername = username.replace('@', '').trim();
+            if (!cleanUsername) return null;
+
+            try {
+                const url = CONFIG.corsProxy + encodeURIComponent('https://t.me/' + cleanUsername);
+                const resp = await fetch(url, { 
+                    signal: AbortSignal.timeout(8000)
+                });
+                const html = await resp.text();
+
+                const ogMatch = html.match(/<meta[^>]*property="og:title"[^>]*content="([^"]+)"/i);
+                if (ogMatch) return ogMatch[1].trim();
+
+                const twMatch = html.match(/<meta[^>]*name="twitter:title"[^>]*content="([^"]+)"/i);
+                if (twMatch) return twMatch[1].trim();
+
+                const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+                if (titleMatch) return titleMatch[1].replace('Telegram', '').replace(/Contact\s*@/, '').trim();
+
+                return null;
+            } catch (e) {
+                console.warn('t.me fetch failed:', e);
+                return null;
+            }
+        }
+
+        // ============================================================
+        // CHECK USERNAME
+        // ============================================================
+        async function checkUsername() {
+            const raw = usernameInput.value.trim();
+            const clean = raw.replace('@', '').trim();
+            
+            if (!clean) {
+                showToast('Введите username Telegram', 'error');
+                return;
+            }
+
+            if (state.isChecking) return;
+            state.isChecking = true;
+            checkBtn.disabled = true;
+            checkBtn.textContent = '⏳';
+
+            const name = await fetchTelegramName(clean);
+
+            if (name) {
+                state.username = clean;
+                state.firstName = name;
+                state.hasFetchedName = true;
+
+                userDisplay.classList.add('visible');
+                const initial = clean.charAt(0).toUpperCase();
+                userAvatar.textContent = initial;
+                userName.textContent = name;
+                userUsername.textContent = '@' + clean;
+                summaryUser.textContent = name + ' (@' + clean + ')';
+                
+                if (state.refBy && !localStorage.getItem('refBonusClaimed_' + clean)) {
+                    state.balance += CONFIG.refBonusStars;
+                    state.earned += CONFIG.refBonusStars;
+                    localStorage.setItem('refBonusClaimed_' + clean, 'true');
+                    updateBalanceUI();
+                    showToast('🎉 +' + CONFIG.refBonusStars + ' ★ за переход по реферальной ссылке!', 'success');
+                }
+
+                state.userId = clean;
+                updatePayButton();
+                showToast('✅ Аккаунт найден: ' + name, 'success');
+            } else {
+                state.username = clean;
+                state.firstName = '@' + clean;
+                state.hasFetchedName = false;
+
+                userDisplay.classList.add('visible');
+                const initial = clean.charAt(0).toUpperCase();
+                userAvatar.textContent = initial;
+                userName.textContent = '@' + clean;
+                userUsername.textContent = '@' + clean;
+                summaryUser.textContent = '@' + clean;
+                state.userId = clean;
+                updatePayButton();
+                showToast('⚠️ Не удалось получить имя, используем @' + clean, 'error');
+            }
+
+            state.isChecking = false;
+            checkBtn.disabled = false;
+            checkBtn.textContent = 'Проверить';
+        }
+
+        // ============================================================
+        // PRICE SELECTION
+        // ============================================================
+        pricesGrid.addEventListener('click', (e) => {
+            const item = e.target.closest('.price-item');
+            if (!item) return;
+
+            document.querySelectorAll('.price-item').forEach(el => el.classList.remove('selected'));
+            item.classList.add('selected');
+
+            state.selectedStars = parseInt(item.dataset.stars);
+            state.selectedTon = parseFloat(item.dataset.ton);
+
+            summaryStars.textContent = state.selectedStars.toLocaleString() + ' ★';
+            summaryTon.textContent = state.selectedTon + ' TON';
+
+            if (state.refBy) {
+                summaryRef.textContent = '+2 ★ (за приглашение)';
+            } else {
+                summaryRef.textContent = '—';
+            }
+
+            updatePayButton();
+        });
+
+        // ============================================================
+        // PAY BUTTON
+        // ============================================================
+        function updatePayButton() {
+            if (state.selectedStars && state.selectedTon && state.userId) {
+                payBtn.disabled = false;
+                payBtn.innerHTML = `💳 Оплатить ${state.selectedTon} TON <span class="sub">Через Tonkeeper</span>`;
+            } else {
+                payBtn.disabled = true;
+                if (!state.userId) {
+                    payBtn.innerHTML = '💳 Сначала укажите @username';
+                } else {
+                    payBtn.innerHTML = '💳 Выберите пакет звёзд';
+                }
+            }
+        }
+
+        payBtn.addEventListener('click', () => {
+            if (!state.selectedTon || !state.userId) return;
+
+            const comment = encodeURIComponent(`stars:${state.selectedStars}:user:${state.userId}`);
+            const amount = state.selectedTon;
+            const deepLink = `ton://transfer/${CONFIG.merchantWallet}?amount=${amount * 1000000000}&text=${comment}`;
+            
+            showToast('🔄 Открываем Tonkeeper...', 'success');
+            window.location.href = deepLink;
+
+            setTimeout(() => {
+                showToast('✅ Если Tonkeeper не открылся, проверьте, что он установлен', '');
+            }, 2000);
+        });
+
+        // ============================================================
+        // WITHDRAWAL
+        // ============================================================
+        withdrawBtn.addEventListener('click', () => {
+            if (state.balance < CONFIG.minWithdrawStars) {
+                showToast(`❌ Минимальный вывод: ${CONFIG.minWithdrawStars} ★`, 'error');
+                return;
+            }
+
+            const address = document.getElementById('withdrawAddress').value.trim();
+            if (!address) {
+                showToast('❌ Укажите адрес для вывода', 'error');
+                return;
+            }
+
+            const amount = state.balance;
+            state.balance = 0;
+            updateBalanceUI();
+            showToast(`✅ Заявка на вывод ${amount} ★ отправлена на ${address}`, 'success');
+        });
+
+        // ============================================================
+        // EVENTS
+        // ============================================================
+        checkBtn.addEventListener('click', checkUsername);
+
+        usernameInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkUsername();
+        });
+
+        // Auto-check from URL
+        (function autoCheck() {
+            const params = new URLSearchParams(window.location.search);
+            const u = params.get('u') || params.get('username');
+            if (u) {
+                usernameInput.value = u;
+                setTimeout(checkUsername, 500);
+            }
+        })();
+
+        // ============================================================
+        // BOT DETECTION
+        // ============================================================
+        // إذا فتح المستخدم الموقع من البوت، يمكن تخصيص الترحيب
+        (function detectBot() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('start') || params.get('bot')) {
+                showToast('🤖 Добро пожаловать из Telegram Bot!', 'success');
+            }
+        })();
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        initReferral();
+        updatePayButton();
+
+        console.log('✅ Telegram Stars — Educational Platform');
+        console.log('ℹ️ This is a simulation for pentest education purposes.');
+    </script>
+</body>
+</html>
